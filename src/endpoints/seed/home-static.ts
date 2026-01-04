@@ -1,4 +1,5 @@
 import type { Page } from '@/payload-types'
+import { brand } from '@/brand/brand'
 
 // Used for pre-seeded content so that the homepage is not empty
 // @ts-expect-error
@@ -6,7 +7,7 @@ export const homeStatic: Page = {
   slug: 'home',
   _status: 'published',
   hero: {
-    type: 'lowImpact',
+    type: 'mediumImpact',
     richText: {
       root: {
         type: 'root',
@@ -20,7 +21,7 @@ export const homeStatic: Page = {
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: 'Payload Website Template',
+                text: brand.tagline,
                 version: 1,
               },
             ],
@@ -34,35 +35,12 @@ export const homeStatic: Page = {
             type: 'paragraph',
             children: [
               {
-                type: 'link',
-                children: [
-                  {
-                    type: 'text',
-                    detail: 0,
-                    format: 0,
-                    mode: 'normal',
-                    style: '',
-                    text: 'Visit the admin dashboard',
-                    version: 1,
-                  },
-                ],
-                direction: 'ltr',
-                fields: {
-                  linkType: 'custom',
-                  newTab: false,
-                  url: '/admin',
-                },
-                format: '',
-                indent: 0,
-                version: 2,
-              },
-              {
                 type: 'text',
                 detail: 0,
                 format: 0,
                 mode: 'normal',
                 style: '',
-                text: ' to make your account and seed content for your website.',
+                text: 'Never miss another call. Our AI voice receptionists handle inquiries, book appointments, and qualify leads 24/7.',
                 version: 1,
               },
             ],
@@ -79,10 +57,29 @@ export const homeStatic: Page = {
         version: 1,
       },
     },
+    links: [
+      {
+        link: {
+          type: 'custom',
+          appearance: 'default',
+          label: brand.primaryCTA,
+          url: '/contact',
+        },
+      },
+      {
+        link: {
+          type: 'custom',
+          appearance: 'outline',
+          label: brand.secondaryCTA,
+          url: brand.calendarUrl,
+        },
+      },
+    ],
   },
+  layout: [],
   meta: {
-    description: 'An open-source website built with Payload and Next.js.',
-    title: 'Payload Website Template',
+    description: brand.seo.defaultDescription,
+    title: brand.seo.defaultTitle,
   },
   title: 'Home',
 }

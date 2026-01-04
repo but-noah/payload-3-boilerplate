@@ -35,11 +35,11 @@ export default {
         xl: '2rem',
       },
       screens: {
-        '2xl': '86rem',
+        '2xl': '80rem',
         lg: '64rem',
         md: '48rem',
         sm: '40rem',
-        xl: '80rem',
+        xl: '72rem',
       },
     },
     extend: {
@@ -58,7 +58,7 @@ export default {
           foreground: 'hsl(var(--accent-foreground))',
         },
         background: 'hsl(var(--background))',
-        border: 'hsla(var(--border))',
+        border: 'hsl(var(--border))',
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -104,15 +104,37 @@ export default {
           to: { height: '0' },
         },
       },
-      typography: ({ theme }) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
-            '--tw-prose-body': 'var(--text)',
-            '--tw-prose-headings': 'var(--text)',
+            '--tw-prose-body': 'hsl(var(--foreground))',
+            '--tw-prose-headings': 'hsl(var(--foreground))',
+            '--tw-prose-links': 'hsl(var(--foreground))',
+            '--tw-prose-bold': 'hsl(var(--foreground))',
+            maxWidth: 'none',
             h1: {
-              fontSize: '3.5rem',
-              fontWeight: 'normal',
-              marginBottom: '0.25em',
+              fontSize: '2.5rem',
+              fontWeight: '700',
+              lineHeight: '1.2',
+              marginBottom: '1rem',
+            },
+            h2: {
+              fontSize: '1.875rem',
+              fontWeight: '600',
+              lineHeight: '1.3',
+              marginTop: '2rem',
+              marginBottom: '0.75rem',
+            },
+            h3: {
+              fontSize: '1.25rem',
+              fontWeight: '600',
+              lineHeight: '1.4',
+              marginTop: '1.5rem',
+              marginBottom: '0.5rem',
+            },
+            p: {
+              lineHeight: '1.7',
+              marginBottom: '1rem',
             },
           },
         },
