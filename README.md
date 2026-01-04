@@ -1,92 +1,204 @@
-<p align="center">
-  <a href="https://funkyton.com/payload-cms/">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://res.cloudinary.com/hczpmiapo/image/upload/v1732576652/Static%20assets/Logos/payload_V3_mhv6wc.png">
-      <source media="(prefers-color-scheme: light)" srcset="https://res.cloudinary.com/hczpmiapo/image/upload/v1732576652/Static%20assets/Logos/payload_V3_mhv6wc.png">
-      <img alt="Payload CMS logo" src="https://res.cloudinary.com/hczpmiapo/image/upload/v1732576652/Static%20assets/Logos/payload_V3_mhv6wc.png" width=100>
-    </picture>
-  </a>
-  <a href="https://railway.app/template/L8TUlT?referralCode=-Yg50p">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://railway.app/brand/logo-light.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://railway.app/brand/logo-dark.svg">
-      <img alt="Railway logo" src="https://railway.app/brand/logo-light.svg" width=100>
-    </picture>
-  </a>
-</p>
+# Eleven Works Website
 
-<h2 align="center">
-  Payload CMS V3 Website Template<br>
-  <a href="https://railway.app/template/L8TUlT?referralCode=-Yg50p">One-click deploy on Railway!</a>
-</h2>
+A modern, minimalist marketing website built with Payload CMS V3, Next.js 15, and Tailwind CSS.
 
-<h1 align="center">
-  Need help?<br>
-  <a href="https://funkyton.com/payload-cms/">Step by step guide and instructions</a>
-</h1>
+## Tech Stack
 
-<p align="center">
-  A powerful, flexible, and production-ready Payload CMS V3 website builder with PostgreSQL database.
-</p>
-
-<p align="center">
-  <a href="https://github.com/payloadcms/payload/blob/main/CONTRIBUTING.md">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="PRs welcome!" />
-  </a>
-  <a href="https://discord.gg/payload">
-    <img src="https://img.shields.io/badge/chat-on%20discord-7289DA.svg" alt="Discord Chat" />
-  </a>
-</p>
-
-## About this boilerplate
-
-This boilerplate is a pre-configured, ready-to-deploy solution for Payload CMS as a website builder. It includes a fully-working backend, enterprise-grade admin panel, and a beautifully designed, production-ready website. This template is optimized for seamless deployment on [Railway](https://railway.app?referralCode=-Yg50p), and uses PostgreSQL for both local development and production environments.
-
-## Preconfigured Features & Integrations
-
-- **Authentication**: Robust user authentication system
-- **Access Control**: Role-based access control for admins and users
-- **Premium Content**: Gated content for authenticated users
-- **Comments**: User commenting system with admin approval
-- **Layout Builder**: Flexible content creation with pre-configured blocks
-- **Draft Preview**: Preview unpublished content before going live
-- **SEO**: Built-in SEO optimization tools
-- **Redirects**: Easy management of URL redirects
-- **PostgreSQL Support**: Configured for both local and production use
-
-### Railway Setup
-
-Use one-click deploy template:
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/L8TUlT?referralCode=-Yg50p)
-
-### Local Setup
-
-1. Clone proejct: (recommeded) Laucnh on Railway and ejct [watch how](https://www.youtube.com/watch?v=LJFek8JP8TE). Alternatively clone this repo or fork it.
-2. Copy `.env.example` to `.env` (fill in your own values..)
-3. Install dependencies: `pnpm install` or `npm install`
-4. Run development mode: `pnpm dev` or `npm run dev`
-or
-5. Build the project: `pnpm build` or `npm run build`
-6. Start the server: `pnpm start` or `npm run start`
-
-
-### Requirements
-
+- **CMS**: Payload CMS V3
+- **Frontend**: Next.js 15, React 19
 - **Database**: PostgreSQL
-- **Node.js**: Compatible version as specified in `package.json`
+- **Styling**: Tailwind CSS, shadcn/ui
+- **Hosting**: Railway
 
-## Useful Resources
+## Quick Start
 
-- **Blog post about this template**: [Read here](https://funkyton.com/payload-cms/)
-- **Official Payload Documentation**: [Read here](https://payloadcms.com/docs)
+### Prerequisites
 
-<p align="center">
-  <a href="https://funkyton.com/">
-    A template by,
-    <br><br>
-    <picture>
-      <img alt="FUNKYTON logo" src="https://res-5.cloudinary.com/hczpmiapo/image/upload/q_auto/v1/ghost-blog-images/funkyton-logo.png" width=200>
-    </picture>
-  </a>
-</p>
+- Node.js 18.20.2+ or 20.9.0+
+- PostgreSQL database
+
+### Local Development
+
+1. Clone the repository
+2. Copy `.env.example` to `.env` and fill in your values:
+   ```
+   DATABASE_URI=postgres://postgres:postgres@localhost:5432/eleven-works
+   PAYLOAD_SECRET=your-secret-key
+   NEXT_PUBLIC_SERVER_URL=http://localhost:3000
+   ```
+3. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+4. Start development server:
+   ```bash
+   pnpm dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000)
+
+### Production Build
+
+```bash
+pnpm build
+pnpm start
+```
+
+## Project Structure
+
+```
+src/
+├── app/(frontend)/     # Next.js pages
+├── app/(payload)/      # Payload admin
+├── brand/              # Brand configuration
+├── collections/        # Payload collections
+├── components/
+│   ├── sections/       # Marketing page sections
+│   └── ui/             # shadcn/ui components
+├── blocks/             # Payload content blocks
+├── heros/              # Hero section variants
+└── Header/Footer/      # Global layout components
+```
+
+## Brand Configuration
+
+All brand values are centralized in `src/brand/brand.ts`:
+
+```typescript
+export const brand = {
+  name: 'Eleven Works',
+  tagline: 'AI Voice Receptionists that never miss a lead',
+  companyName: 'Eleven Works',
+  primaryCTA: 'Call & test it live',
+  secondaryCTA: 'Book a demo',
+  demoPhone: '+1 (XXX) XXX-XXXX',
+  calendarUrl: 'https://cal.com/',
+  legalEmail: 'hello@elevenworks.io',
+  // ... navigation and SEO config
+}
+```
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home page |
+| `/solution` | Solution page (CMS) |
+| `/use-cases/*` | Use case pages (CMS) |
+| `/pricing` | Pricing page |
+| `/contact` | Contact page |
+| `/privacy`, `/terms`, `/imprint` | Legal pages (CMS) |
+
+## Rebranding Guide
+
+To rebrand from "Eleven Works" to "Kellner Digital" (or any other brand):
+
+### 1. Update Brand Configuration
+
+Edit `src/brand/brand.ts`:
+
+```typescript
+export const brand = {
+  name: 'Kellner Digital',
+  tagline: 'Your new tagline here',
+  companyName: 'Kellner Digital',
+  legalEmail: 'hello@kellner.digital',
+  // Update other values as needed
+}
+```
+
+### 2. Update Environment Variables
+
+Update `NEXT_PUBLIC_SERVER_URL` in your environment to the new domain.
+
+### 3. Update Favicon & Assets
+
+Replace the following files:
+- `public/favicon.ico`
+- `public/favicon.svg`
+- Any logo images in `public/`
+
+### 4. Update CMS Content
+
+1. Log into `/admin`
+2. Update any hardcoded content in Pages
+3. Update Header/Footer navigation if needed
+
+### 5. Domain Switch Checklist
+
+- [ ] Update DNS records
+- [ ] Update `NEXT_PUBLIC_SERVER_URL` environment variable
+- [ ] Update `brand.ts` with new email/phone
+- [ ] Update SSL certificates
+- [ ] Set up redirects from old domain (if applicable)
+- [ ] Update external integrations (Cal.com, etc.)
+- [ ] Test all forms and CTAs
+- [ ] Update Google Search Console
+- [ ] Update social media links
+
+### Files to Review
+
+| File | What to Change |
+|------|----------------|
+| `src/brand/brand.ts` | All brand values |
+| `public/favicon.*` | Favicon files |
+| `src/app/(frontend)/layout.tsx` | Uses brand config (auto) |
+| `src/plugins/index.ts` | Uses brand config (auto) |
+| CMS Content | Any hardcoded references |
+
+## Customization
+
+### Design System
+
+Colors and styling are configured in:
+- `src/app/(frontend)/globals.css` - CSS variables
+- `tailwind.config.mjs` - Tailwind theme
+
+### Marketing Sections
+
+Reusable marketing components in `src/components/sections/`:
+- `Hero` - Main hero section
+- `ValueProps` - Feature/benefit grid
+- `HowItWorks` - Step-by-step process
+- `LiveTestCTA` - Call-to-action with phone
+- `UseCaseTeaser` - Industry use case highlight
+- `FAQ` - Accordion FAQ
+- `Pricing` - Pricing tiers
+- `Contact` - Contact options
+- `FinalCTA` - Bottom call-to-action
+
+### Adding New Pages
+
+1. For static pages: Create in `src/app/(frontend)/your-page/page.tsx`
+2. For CMS pages: Create via Payload admin at `/admin`
+
+## Deployment
+
+### Railway
+
+This project is optimized for Railway deployment:
+
+1. Connect your repository to Railway
+2. Add a PostgreSQL database
+3. Set environment variables:
+   - `DATABASE_URI`
+   - `PAYLOAD_SECRET`
+   - `NEXT_PUBLIC_SERVER_URL`
+4. Deploy
+
+### Media Storage
+
+By default, media files are stored locally in `public/media/`. For production, consider configuring cloud storage (S3, Cloudflare R2, etc.) via Payload's storage adapters.
+
+## Scripts
+
+```bash
+pnpm dev          # Start development server
+pnpm build        # Build for production
+pnpm start        # Start production server
+pnpm lint         # Run ESLint
+pnpm lint:fix     # Fix linting issues
+```
+
+## License
+
+Private - All rights reserved.

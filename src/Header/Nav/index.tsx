@@ -1,25 +1,26 @@
 'use client'
 
 import React from 'react'
-
-import type { Header as HeaderType } from '@/payload-types'
-
-import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
-import { SearchIcon } from 'lucide-react'
 
-export const HeaderNav: React.FC<{ header: HeaderType }> = ({ header }) => {
-  const navItems = header?.navItems || []
+import { brand } from '@/brand/brand'
+import { Button } from '@/components/ui/button'
 
+export const HeaderNav: React.FC = () => {
   return (
-    <nav className="flex gap-3 items-center">
-      {navItems.map(({ link }, i) => {
-        return <CMSLink key={i} {...link} appearance="link" />
-      })}
-      <Link href="/search">
-        <span className="sr-only">Search</span>
-        <SearchIcon className="w-5 text-primary" />
-      </Link>
+    <nav className="flex gap-6 items-center">
+      {brand.nav.main.map((item) => (
+        <Link
+          key={item.href}
+          href={item.href}
+          className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+        >
+          {item.label}
+        </Link>
+      ))}
+      <Button asChild size="sm">
+        <Link href="/contact">{brand.primaryCTA}</Link>
+      </Button>
     </nav>
   )
 }
